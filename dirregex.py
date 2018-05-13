@@ -1,0 +1,15 @@
+import re,os,shutil,html
+playlist=open("C:\\Users\\Public\\Best of the best.wpl","r")
+r=playlist.read()
+r=html.unescape(r)
+r=r.replace('Ð¾Ñ‚','от')
+r=r.replace('â–¶','▶')
+r=r.replace('Ã¶','ö')
+r=r.replace('Ð¡','С')
+r=r.replace('Ã¤','ä')
+r=r.replace('Ãœ','Ü')
+patern=re.compile("\w:.+\.mp3|\w:.+\.wav|\w:.+\.wma|\w:.+\.m4a")
+ls=patern.findall(r)
+for x in range(len(ls)):
+    shutil.copy(ls[x],"D:\\new")
+    print(x)
